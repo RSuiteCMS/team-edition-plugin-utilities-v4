@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+apply from: 'http://ivy.reallysi.com/ivy-repo/rsuite-std-plugin-tasks.gradle'
+apply from: 'http://ivy.reallysi.com/ivy-repo/repositories-std-include.gradle'
+
+project.buildDir = 'target'
+group = 'rsi'
+
+dependencies {
+	compile('rsi:rsuite-api:4.0.+') {
+		transitive=false
+	}
+	compile 'apache:commons-lang:2.4'
+	compile 'apache:commons-io:1.4'
+	compile 'apache:commons-logging:1.1'
+	compile 'jboss:jbpm:rsuite-20090317'
+	compile 'apache:poi:3.8'
+	compile 'apache:poi-ooxml:3.8'
+	compile 'apache:poi-ooxml-schemas:3.8'
+	testCompile 'junit:junit:4.4'
+}
+
+jar () {
+	baseName='team-edition-plugin-utilities'
+}
